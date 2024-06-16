@@ -4,12 +4,16 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
 func main() {
+
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
+	app.Use(logger.New())
+
+	app.Get("/api/golang/ping", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
 	})
 
