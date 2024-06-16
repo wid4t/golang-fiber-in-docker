@@ -13,7 +13,7 @@ func main() {
 
 	app.Use(logger.New())
 
-	app.Get("/api/golang/ping", func(c *fiber.Ctx) error {
+	app.Get("/test", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
 	})
 
