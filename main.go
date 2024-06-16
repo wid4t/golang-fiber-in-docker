@@ -11,10 +11,10 @@ func main() {
 
 	app := fiber.New()
 
-	app.Use(logger.New())
+	api := app.Group("/module/partner", logger.New())
 
-	app.Get("/test", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
+	api.Get("/check", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, i'm from golang-fiber-in-docker")
 	})
 
 	log.Fatal(app.Listen(":3000"))
