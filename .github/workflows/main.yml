@@ -12,7 +12,23 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Navigate and Build Project
+    - name: Build Project and Inject to Containerd
       run: |
         cd ~/data/golang-fiber-in-docker
-        echo "Current Directory: $(pwd)"
+        echo "done : current directory: $(pwd)"
+        git pull origin master
+        echo "done : get data from github"
+        docker build . -t widat/golang-fiber-in-docker:golang
+        echo "done : build project base on Dockerfile"
+        docker save -o golang-fiber-in-docker.tar widat/golang-fiber-in-docker:golang
+        echo "done : save image docker in tar format"
+        ctr -n=k8s.io image import golang-fiber-in-docker.tar
+        echo "done : load data image into containerd"
+
+    - name: Deployment
+      run: |
+        cd ~/project
+        echo "done : current directory: $(pwd)"
+        kubectl rollout restart deployments/golang-fiber -n research
+        echo "done : deployment success"
+        
