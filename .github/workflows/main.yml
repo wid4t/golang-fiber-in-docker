@@ -1,0 +1,18 @@
+name: Build and Deploy to Ubuntu VPS
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Navigate and Build Project
+      run: |
+        cd ~/data/golang-fiber-in-docker
+        echo "Current Directory: $(pwd)"
