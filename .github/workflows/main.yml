@@ -23,7 +23,9 @@ jobs:
         docker save -o golang-fiber-in-docker.tar widat/golang-fiber-in-docker:golang
         echo "done : save image docker in tar format"
         ctr -n=k8s.io image import golang-fiber-in-docker.tar
+        rm golang-fiber-in-docker.tar
         echo "done : load data image into containerd"
+        
 
     - name: Deployment
       run: |
