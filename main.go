@@ -36,6 +36,8 @@ func main() {
 
 	api.Get("/check", func(c *fiber.Ctx) error {
 
+		log.Println(c.IP())
+
 		name := c.Query("name", "good people")
 
 		req := &pb.CallRequest{
