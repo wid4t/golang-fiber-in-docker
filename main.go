@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
@@ -36,7 +37,7 @@ func main() {
 
 	api.Get("/check", func(c *fiber.Ctx) error {
 
-		log.Println("ip:" + c.IP())
+		fmt.Println("ip:" + c.IP())
 
 		name := c.Query("name", "good people")
 
