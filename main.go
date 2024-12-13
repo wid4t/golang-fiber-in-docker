@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/ansrivas/fiberprometheus/v2"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 
@@ -34,6 +35,11 @@ func main() {
 	app := fiber.New()
 
 	api := app.Group("/module/partner", logger.New())
+
+	prometheus := fiberprometheus.New("golang-fiber-in-docker")
+	prometheus.RegisterAt(app, "/metrics")
+	//prometheus.SetSkipPaths([]string{"/ping"})
+	api.Use(prometheus.Middleware)
 
 	api.Get("/check", func(c *fiber.Ctx) error {
 
