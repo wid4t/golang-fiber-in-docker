@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/ansrivas/fiberprometheus/v2"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/monitor"
 
 	pb "golang-fiber-in-docker/proto"
 
@@ -34,9 +34,7 @@ func main() {
 
 	app := fiber.New()
 
-	prometheus := fiberprometheus.New("golang-fiber-in-docker")
-	prometheus.RegisterAt(app, "/metrics")
-	app.Use(prometheus.Middleware)
+	app.Get("/module/partner/metrics", monitor.New())
 
 	api := app.Group("/module/partner", logger.New())
 
