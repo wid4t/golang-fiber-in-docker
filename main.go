@@ -34,11 +34,11 @@ func main() {
 
 	app := fiber.New()
 
-	prometheus := fiberprometheus.New("golang-fiber-in-docker")
-	prometheus.RegisterAt(app, "/module/partner/metrics")
-	app.Use(prometheus.Middleware)
-
 	api := app.Group("/module/partner", logger.New())
+
+	prometheus := fiberprometheus.New("golang-fiber-in-docker")
+	prometheus.RegisterAt(app, "/metrics")
+	api.Use(prometheus.Middleware)
 
 	api.Get("/check", func(c *fiber.Ctx) error {
 
