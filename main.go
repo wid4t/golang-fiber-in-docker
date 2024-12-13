@@ -35,7 +35,7 @@ func main() {
 	app := fiber.New()
 
 	prometheus := fiberprometheus.New("golang-fiber-in-docker")
-	prometheus.RegisterAt(app, "/module/partner/metrics")
+	prometheus.RegisterAt(app, "/metrics")
 	app.Use(prometheus.Middleware)
 
 	api := app.Group("/module/partner", logger.New())
