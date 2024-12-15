@@ -8,9 +8,11 @@ require (
 	github.com/Microsoft/go-winio v0.6.0 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20220930113650-c6815a8c17ad // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
+	github.com/ansrivas/fiberprometheus v0.3.2 // indirect
 	github.com/ansrivas/fiberprometheus/v2 v2.7.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bitly/go-simplejson v0.5.0 // indirect
+	github.com/carousell/fiber-prometheus-middleware v1.0.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/cloudflare/circl v1.2.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
@@ -25,8 +27,12 @@ require (
 	github.com/gobwas/httphead v0.1.0 // indirect
 	github.com/gobwas/pool v0.2.1 // indirect
 	github.com/gobwas/ws v1.0.4 // indirect
+	github.com/gofiber/adaptor/v2 v2.2.1 // indirect
+	github.com/gofiber/fiber v1.14.4 // indirect
+	github.com/gofiber/utils v0.0.10 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/gorilla/handlers v1.5.1 // indirect
+	github.com/gorilla/schema v1.1.0 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
